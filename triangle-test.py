@@ -19,11 +19,10 @@ class Triangle():
             raise Exception('辺の長さが不正')
         if (a + b < c or a + c < b or b + c < a):
             raise Exception('2辺の和が不正')
-        
+
         self.a = a
         self.b = b
         self.c = c
-
 
     def getType(self):
         if (self.a == self.b and self.b == self.c):
@@ -36,19 +35,20 @@ class Triangle():
 class TestTriangle(unittest.TestCase):
 
     def test_equilateral(self):
-        triangle = Triangle(10, 10, 10)
+        triangle = Triangle(3, 3, 3)
         self.assertEqual(1, triangle.getType())
 
     def test_isosceles(self):
-        triangle = Triangle(10, 10, 5)
+        triangle = Triangle(3, 3, 5)
         self.assertEqual(2, triangle.getType())
 
     def test_scalene(self):
-        triangle = Triangle(1, 3, 5)
+        triangle = Triangle(3, 4, 5)
         self.assertEqual(3, triangle.getType())
 
     def test_nodeLength(self):
-        self.assertRaises(Exception,Triangle(0,3,5))
+        with self.assertRaises(Exception):
+            Triangle(0, 3, 5)
 
 
 if __name__ == "__main__":
