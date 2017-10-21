@@ -11,14 +11,20 @@
 import unittest
 
 
-class TestStringMethods(unittest.TestCase):
+class Triangle():
 
-    def test_upper(self):
-        self.assertEqual('foo'.upper(), 'FOO')
+    def __init__(self, a, b, c):
+        # 取り敢えず辺の長さ
+        self.a = a
+        self.b = b
+        self.c = c
 
-    def test_isupper(self):
-        self.assertTrue('FOO'.isupper())
-        self.assertFalse('Foo'.isupper())
+
+class TestTriangle(unittest.TestCase):
+
+    def test_equilateral(self):
+        triangle = Triangle(10, 10, 10)
+        self.assertTrue(triangle.a == triangle.b and triangle.b == triangle.c)
 
 
 if __name__ == "__main__":
