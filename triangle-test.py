@@ -15,9 +15,15 @@ class Triangle():
 
     def __init__(self, a, b, c):
         # 取り敢えず辺の長さ
+        if (a <= 0 or b <= 0 or c <= 0):
+            raise Exception('辺の長さが不正')
+        if (a + b < c or a + c < b or b + c < a):
+            raise Exception('2辺の和が不正')
+        
         self.a = a
         self.b = b
         self.c = c
+
 
     def getType(self):
         if (self.a == self.b and self.b == self.c):
@@ -40,6 +46,9 @@ class TestTriangle(unittest.TestCase):
     def test_scalene(self):
         triangle = Triangle(1, 3, 5)
         self.assertEqual(3, triangle.getType())
+
+    def test_nodeLength(self):
+        self.assertRaises(Exception,Triangle(0,3,5))
 
 
 if __name__ == "__main__":
