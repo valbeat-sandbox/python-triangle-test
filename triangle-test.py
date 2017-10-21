@@ -19,12 +19,16 @@ class Triangle():
         self.b = b
         self.c = c
 
+    def getType(self):
+        if (self.a == self.b and self.b == self.c):
+            return 1
+
 
 class TestTriangle(unittest.TestCase):
 
     def test_equilateral(self):
         triangle = Triangle(10, 10, 10)
-        self.assertTrue(triangle.a == triangle.b and triangle.b == triangle.c)
+        self.assertEqual(1, triangle.getType())
 
 
 if __name__ == "__main__":
