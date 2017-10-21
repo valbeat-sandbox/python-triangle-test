@@ -37,7 +37,7 @@ class TestTriangle(unittest.TestCase):
         triangle = Triangle(10, 10, 5)
         self.assertEqual(2, triangle.getType())
 
-    def test_irrational(self):
+    def test_scalene(self):
         triangle = Triangle(1, 3, 5)
         self.assertEqual(3, triangle.getType())
 
