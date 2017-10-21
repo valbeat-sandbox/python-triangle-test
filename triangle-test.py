@@ -50,6 +50,10 @@ class TestTriangle(unittest.TestCase):
         with self.assertRaises(Exception):
             Triangle(0, 3, 5)
 
+    def test_nodeAdd(self):
+        with self.assertRaises(Exception):
+            Triangle(1, 3, 5)
+
 
 if __name__ == "__main__":
     unittest.main()
